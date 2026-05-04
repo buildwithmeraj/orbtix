@@ -3,30 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets//stylesheets/main.css" />
     <link
       rel="shortcut icon"
       href="assets/images/icon.png"
       type="image/x-icon"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Orbtix - Orbiting the Future of Technology</title>
   </head>
   <body class="flex flex-col min-h-screen">
     <header>
       <nav class="bg-slate-500 h-16 flex items-center justify-between px-5">
-        <div class="flex items-center gap-2 text-2xl font-bold text-white">
+        <div class="flex items-center gap-2 text-3xl font-bold text-white">
           <img src="assets/images/icon.png" alt="Orbtix Icon" class="w-10" />
           Orbtix
         </div>
       </nav>
     </header>
-    <main class="grow p-5">hello</main>
+    <main class="grow">
+      <div class="hero py-12">
+        <div class="max-w-7xl mx-auto container grid grid-cols-2 items-center">
+          <div
+            class="space-y-2 backdrop-blur-sm border-4 border-[#ffa500] rounded-tl-3xl rounded-br-3xl p-6"
+          >
+            <h2 class="text-6xl font-bold">Orbtix</h2>
+            <p class="italic text-lg font-bold text-[#ff8000]">
+              Orbiting the Future of Technology
+            </p>
+            <p id="typewrite"></p>
+            <div class="flex justify-center">
+              <button class="btn">Let's Talk</button>
+            </div>
+          </div>
+          <div class="place-self-end">
+            <img
+              src="assets/images/icon.png"
+              alt="Orbtix Icon"
+              class="animate__animated animate__pulse animate__slow animate__infinite"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
     <footer
       class="bg-slate-500 p-4 flex items-center justify-center text-white"
     >
       &copy Orbtix 2026
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/typeit@8.8.7/dist/index.umd.js"></script>
     <script src="assets/javascripts/main.js"></script>
   </body>
 </html>
