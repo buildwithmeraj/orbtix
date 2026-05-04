@@ -1,0 +1,10 @@
+:root {
+  --primary-color: orange;
+}
+
+.primary-bg {
+  background: var(--primary-color);
+}
+.primary-content {
+  color: var(--primary-color);
+}
