@@ -30,13 +30,13 @@
         </div>
       </nav>
     </header>
-    <main class="grow">
-      <div class="hero py-12">
+    <main class="grow space-y-10">
+      <section class="hero py-12">
         <div class="max-w-7xl mx-auto container grid grid-cols-2 items-center">
           <div
             class="space-y-2 backdrop-blur-sm border-4 border-[#ffa500] rounded-tl-3xl rounded-br-3xl p-6"
           >
-            <h2 class="text-6xl font-bold">Orbtix</h2>
+            <h1 class="text-6xl font-bold">Orbtix</h1>
             <p class="italic text-lg font-bold text-[#ff8000]">
               Orbiting the Future of Technology
             </p>
@@ -53,15 +53,32 @@
             />
           </div>
         </div>
-      </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto container">
+        <h2>Our Services</h2>
+        <div class="grid grid-cols-3 gap-4" id="services">
+          <dotlottie-wc
+            src="https://lottie.host/5611ec6f-8f1c-4633-8c3d-607d1b3aae7b/0P8w4J4ymK.lottie"
+            style="width: 300px; height: 300px"
+            class="place-self-center col-span-full -mt-12"
+            autoplay
+            loop
+          ></dotlottie-wc>
+        </div>
+      </section>
     </main>
     <footer
-      class="bg-slate-500 p-4 flex items-center justify-center text-white"
+      class="bg-slate-500 p-4 flex items-center justify-center text-white mt-4"
     >
       &copy Orbtix 2026
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/typeit@8.8.7/dist/index.umd.js"></script>
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
     <script src="assets/javascripts/main.js"></script>
   </body>
 </html>

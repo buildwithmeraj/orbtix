@@ -15,3 +15,61 @@ new TypeIt("#typewrite", { speed: 50, loop: true })
     "From startups to enterprises, we craft tailored software solutions that solve real problems and drive measurable growth.",
   )
   .go();
+
+// fetch and render services after page has loaded
+window.addEventListener("load", async () => {
+  try {
+    // try to fetch services
+    const response = await fetch("data/services.json");
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const services = await response.json();
+
+    // try to render services
+    showServices(services);
+  } catch (error) {
+    console.error("Error loading services:", error);
+  }
+
+  // function for rendering services
+  function showServices(services) {
+    // get the div
+    const servicesDiv = document.getElementById("services");
+
+    // first empty the div
+    servicesDiv.innerHTML = "";
+
+    if (services && services.length > 0) {
+      services.forEach((service) => {
+        // create the child componet to hold the service
+        const card = document.createElement("div");
+
+        // add classes to it
+        card.className = "rounded-lg shadow-md bg-base-100";
+
+        // add data to it
+        card.innerHTML = `
+          <figure>
+            <img
+              src="${service.image || "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"}"
+              alt="${service.title}"
+              class="rounded-t-lg w-full object-cover h-48"
+            />
+          </figure>
+          <div class="p-4">
+            <h3 class="card-title text-xl font-semibold mb-2">${service.title}</h3>
+            <p class="text-opacity-60 text-sm">
+              ${service.description}
+            </p>
+          </div>
+        `;
+
+        // finally append them to the services div
+        servicesDiv.appendChild(card);
+      });
+    } else {
+      servicesDiv.innerHTML = "<p>No services found.</p>";
+    }
+  }
+});

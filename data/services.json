@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Web Development",
+    "description": "We design and develop fast, responsive, and scalable websites tailored to your business goals — from landing pages to full-stack web applications.",
+    "image": "assets/images/services/web_development.svg"
+  },
+  {
+    "id": 2,
+    "title": "Mobile App Development",
+    "description": "Cross-platform mobile apps built for iOS and Android that deliver smooth performance and intuitive user experiences.",
+    "image": "assets/images/services/app_development.jpg"
+  },
+  {
+    "id": 3,
+    "title": "UI/UX Design",
+    "description": "User-centered design that combines aesthetics with functionality — wireframes, prototypes, and polished interfaces that users love.",
+    "image": "assets/images/services/UI_UX.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Cloud & DevOps",
+    "description": "Scalable cloud infrastructure, CI/CD pipelines, and deployment solutions that keep your applications running reliably at any scale.",
+    "image": "assets/images/services/clouds_devops.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Cybersecurity",
+    "description": "Protect your digital assets with vulnerability assessments, secure architecture consulting, and real-time threat monitoring.",
+    "image": "assets/images/services/cyber_security.svg"
+  },
+  {
+    "id": 6,
+    "title": "Digital Marketing & SEO",
+    "description": "Data-driven strategies to grow your online presence — SEO, content marketing, and analytics that turn traffic into customers.",
+    "image": "assets/images/services/digital_marketing.svg"
+  }
+]
