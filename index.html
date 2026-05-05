@@ -25,13 +25,45 @@
     <header>
       <nav class="bg-slate-500 h-16 flex items-center justify-between px-5">
         <div class="flex items-center gap-2 text-3xl font-bold text-white">
+          <div class="text-center">
+            <button class="lg:hidden text-white" id="drawer_toggle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="size-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
           <img src="assets/images/icon.png" alt="Orbtix Icon" class="w-10" />
           Orbtix
+        </div>
+        <div class="hidden lg:flex items-center gap-6 text-white">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a><a href="#about">About US</a>
+          <a href="#contact">Contact US</a>
+        </div>
+        <div>
+          <label
+            class="relative inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-gray-900"
+          >
+            <input class="peer sr-only" id="AcceptConditions" type="checkbox" />
+            <span
+              class="absolute inset-y-0 start-0 m-1 size-6 rounded-full bg-gray-300 ring-[6px] ring-inset ring-white transition-all peer-checked:start-8 peer-checked:w-2 peer-checked:bg-white peer-checked:ring-transparent"
+            ></span>
+          </label>
         </div>
       </nav>
     </header>
     <main class="grow space-y-10">
       <section class="hero py-12">
+        <a name="home"></a>
         <div class="content-container grid grid-cols-2 items-center">
           <div
             class="space-y-2 backdrop-blur-sm border-4 border-[#ffa500] rounded-tl-3xl rounded-br-3xl p-6"
@@ -56,6 +88,7 @@
       </section>
 
       <section class="content-container">
+        <a name="services"></a>
         <h2>Our Services</h2>
         <div class="grid grid-cols-3 gap-4" id="services">
           <dotlottie-wc
@@ -69,6 +102,7 @@
       </section>
 
       <section class="content-container">
+        <a name="about"></a>
         <h2>About Orbtix</h2>
         <div
           class="grid grid-cols-2 items-center gap-2 bg-gray-300 p-8 rounded-2xl"
@@ -98,6 +132,7 @@
       </section>
 
       <section class="content-container">
+        <a name="contact"></a>
         <h2>Contact US</h2>
         <div>
           <form id="contact_form" class="space-y-2">
@@ -139,6 +174,18 @@
     >
       &copy Orbtix 2026
     </footer>
+
+    <div
+      id="drawer"
+      class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-60"
+      tabindex="-1"
+      aria-labelledby="drawer-label"
+    >
+      <div class="flex items-center">
+        <button type="button" data-drawer-hide="drawer">x</button>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/typeit@8.8.7/dist/index.umd.js"></script>
     <script

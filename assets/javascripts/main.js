@@ -97,3 +97,21 @@ document.getElementById("submit_btn").addEventListener("click", function () {
 
   //console.log("Submitted");
 });
+
+// toggle drawer on hamburger menu click
+const hamburgerBtn = document.getElementById("drawer_toggle");
+const drawer = document.getElementById("drawer");
+
+if (hamburgerBtn) {
+  hamburgerBtn.addEventListener("click", () => {
+    drawer.classList.toggle("-translate-x-full");
+  });
+}
+
+// close drawer when close button is clicked
+const closeBtn = document.querySelector("[data-drawer-hide]");
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => {
+    drawer.classList.add("-translate-x-full");
+  });
+}
