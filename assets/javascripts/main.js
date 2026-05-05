@@ -16,6 +16,37 @@ new TypeIt("#typewrite", { speed: 50, loop: true })
   )
   .go();
 
+// reveal sections/cards on scroll
+const revealElements = () => {
+  const items = document.querySelectorAll(".reveal");
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (reducedMotion) {
+    items.forEach((item) => item.classList.add("reveal-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("reveal-visible");
+        currentObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.14 },
+  );
+
+  items.forEach((item, index) => {
+    item.style.transitionDelay = `${Math.min(index * 90, 320)}ms`;
+    observer.observe(item);
+  });
+};
+
+window.addEventListener("load", revealElements);
+
 // fetch and render services after page has loaded
 window.addEventListener("load", async () => {
   try {
@@ -46,7 +77,7 @@ window.addEventListener("load", async () => {
         const card = document.createElement("div");
 
         // add classes to it
-        card.className = "rounded-lg shadow-md bg-base-100";
+        card.className = "rounded-lg shadow-md bg-base-100 reveal";
 
         // add data to it
         card.innerHTML = `
@@ -71,6 +102,8 @@ window.addEventListener("load", async () => {
     } else {
       servicesDiv.innerHTML = "<p>No services found.</p>";
     }
+
+    revealElements();
   }
 });
 

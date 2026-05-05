@@ -23,8 +23,10 @@
   </head>
   <body class="flex flex-col min-h-screen">
     <header>
-      <nav class="bg-slate-500 h-16 flex items-center justify-between px-5">
-        <div class="flex items-center gap-2 text-3xl font-bold text-white">
+      <nav
+        class="bg-slate-500 h-16 flex items-center justify-between px-4 sm:px-5"
+      >
+        <div class="flex items-center gap-2 text-2xl sm:text-3xl font-bold text-white">
           <div class="text-center">
             <button class="lg:hidden text-white" id="drawer_toggle">
               <svg
@@ -41,7 +43,11 @@
               </svg>
             </button>
           </div>
-          <img src="assets/images/icon.png" alt="Orbtix Icon" class="w-10" />
+          <img
+            src="assets/images/icon.png"
+            alt="Orbtix Icon"
+            class="w-8 sm:w-10"
+          />
           Orbtix
         </div>
         <div class="hidden lg:flex items-center gap-6 text-white">
@@ -61,39 +67,41 @@
         </div>
       </nav>
     </header>
-    <main class="grow space-y-10">
-      <section class="hero py-12">
+    <main class="grow space-y-10 md:space-y-14">
+      <section class="hero py-10 md:py-12 reveal">
         <a name="home"></a>
-        <div class="content-container grid grid-cols-2 items-center">
+        <div
+          class="content-container grid grid-cols-1 lg:grid-cols-2 items-center gap-8"
+        >
           <div
-            class="space-y-2 backdrop-blur-sm border-4 border-[#ffa500] rounded-tl-3xl rounded-br-3xl p-6"
+            class="space-y-3 backdrop-blur-sm border-4 border-[#ffa500] rounded-tl-3xl rounded-br-3xl p-5 sm:p-6"
           >
-            <h1 class="text-6xl font-bold">Orbtix</h1>
-            <p class="italic text-lg font-bold text-[#ff8000]">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold">Orbtix</h1>
+            <p class="italic text-base sm:text-lg font-bold text-[#ff8000]">
               Orbiting the Future of Technology
             </p>
-            <p id="typewrite"></p>
-            <div class="flex justify-center">
+            <p id="typewrite" class="text-sm sm:text-base"></p>
+            <div class="flex justify-start sm:justify-center">
               <button class="btn">Let's Talk</button>
             </div>
           </div>
-          <div class="place-self-end">
+          <div class="place-self-center lg:place-self-end">
             <img
               src="assets/images/icon.png"
               alt="Orbtix Icon"
-              class="animate__animated animate__pulse animate__slow animate__infinite"
+              class="hero-logo animate__animated animate__pulse animate__slow animate__infinite"
             />
           </div>
         </div>
       </section>
 
-      <section class="content-container">
+      <section class="content-container reveal">
         <a name="services"></a>
         <h2>Our Services</h2>
-        <div class="grid grid-cols-3 gap-4" id="services">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="services">
           <dotlottie-wc
             src="https://lottie.host/5611ec6f-8f1c-4633-8c3d-607d1b3aae7b/0P8w4J4ymK.lottie"
-            style="width: 300px; height: 300px"
+            style="width: min(300px, 80vw); height: min(300px, 80vw)"
             class="place-self-center col-span-full -mt-12"
             autoplay
             loop
@@ -101,14 +109,14 @@
         </div>
       </section>
 
-      <section class="content-container">
+      <section class="content-container reveal">
         <a name="about"></a>
         <h2>About Orbtix</h2>
         <div
-          class="grid grid-cols-2 items-center gap-2 bg-gray-300 p-8 rounded-2xl"
+          class="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 bg-gray-300 p-5 sm:p-8 rounded-2xl"
         >
           <div class="flex-1">
-            <h1 class="card-title">
+            <h1 class="card-title mb-3">
               We Are Orbtix — A Team Passionate About Technology
             </h1>
             <p>
@@ -124,6 +132,7 @@
             </p>
           </div>
           <dotlottie-wc
+            class="w-full max-w-md mx-auto"
             src="https://lottie.host/8db3e799-9c86-428e-b2ce-820140a9982d/lixO54MRQQ.lottie"
             autoplay
             loop
@@ -131,7 +140,7 @@
         </div>
       </section>
 
-      <section class="content-container">
+      <section class="content-container reveal">
         <a name="contact"></a>
         <h2>Contact US</h2>
         <div>
