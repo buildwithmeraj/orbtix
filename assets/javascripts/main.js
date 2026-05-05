@@ -75,6 +75,25 @@ window.addEventListener("load", async () => {
 });
 
 document.getElementById("submit_btn").addEventListener("click", function () {
-  const form = document.getElementById("contact_form");
-  console.log("Submitted");
+  const result = document.getElementById("result");
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const message = document.getElementById("message");
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (name.value.length < 3 || name.value.length > 15) {
+    result.innerHTML =
+      '<span class="text-red-500 font-semibold">Invalid name</span>';
+  } else if (emailRegex.test(email.value) === false) {
+    result.innerHTML =
+      '<span class="text-red-500 font-semibold">Invalid email</span>';
+  } else if (message.value.length < 20 || message.value.length > 1000) {
+    result.innerHTML =
+      '<span class="text-red-500 font-semibold">Invalid message length</span>';
+  } else {
+    result.innerHTML =
+      '<span class="text-green-500 font-semibold">Message sent successfuly</span>';
+  }
+
+  //console.log("Submitted");
 });
