@@ -73,3 +73,8 @@ window.addEventListener("load", async () => {
     }
   }
 });
+
+document.getElementById("submit_btn").addEventListener("click", function () {
+  const form = document.getElementById("contact_form");
+  console.log("Submitted");
+});
