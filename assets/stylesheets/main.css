@@ -9,6 +9,58 @@
   --primary-color: #ffa500;
 }
 
+html[data-theme="light"] {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-soft: #e5e7eb;
+  --text: #0f172a;
+  --muted-text: #334155;
+  --nav-bg: #475569;
+  --nav-text: #ffffff;
+  --footer-bg: #334155;
+  --footer-text: #f8fafc;
+  --footer-muted: #cbd5e1;
+  --footer-border: rgba(255, 255, 255, 0.16);
+  --toggle-track: #d1d5db;
+  --toggle-track-active: #f59e0b;
+  --toggle-thumb: #ffffff;
+  --toggle-thumb-active: #ffffff;
+  --input-bg: #f1f1f1;
+  --input-border: #94a3b8;
+  --success-bg: #dcfce7;
+  --success-text: #166534;
+  --error-bg: #fee2e2;
+  --error-text: #991b1b;
+  --drawer-bg: #ffffff;
+  --drawer-border: #cbd5e1;
+}
+
+html[data-theme="dark"] {
+  --bg: #0b1220;
+  --surface: #162033;
+  --surface-soft: #1b263b;
+  --text: #e5e7eb;
+  --muted-text: #cbd5e1;
+  --nav-bg: #0f172a;
+  --nav-text: #f8fafc;
+  --footer-bg: #111827;
+  --footer-text: #e2e8f0;
+  --footer-muted: #94a3b8;
+  --footer-border: rgba(148, 163, 184, 0.22);
+  --toggle-track: #334155;
+  --toggle-track-active: #22c55e;
+  --toggle-thumb: #e2e8f0;
+  --toggle-thumb-active: #f8fafc;
+  --input-bg: #0f172a;
+  --input-border: #475569;
+  --success-bg: #052e1a;
+  --success-text: #86efac;
+  --error-bg: #3f1d1d;
+  --error-text: #fca5a5;
+  --drawer-bg: #111827;
+  --drawer-border: #334155;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -16,6 +68,8 @@ html {
 body {
   font-family: Nunito;
   margin: 0;
+  background: var(--bg);
+  color: var(--text);
 }
 
 a,
@@ -44,12 +98,99 @@ textarea {
   background-size: cover;
 }
 
+.site-nav {
+  background: var(--nav-bg);
+  color: var(--nav-text);
+}
+
+.site-nav-brand,
+.site-nav-icon,
+.site-nav-links a {
+  color: var(--nav-text);
+}
+
+.site-footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  border-top: 1px solid var(--footer-border);
+  box-shadow: 0 -14px 28px rgba(15, 23, 42, 0.18);
+}
+
+.site-footer a {
+  color: var(--footer-text);
+}
+
+.site-footer a:hover {
+  color: #fbbf24;
+}
+
+.social-links {
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--footer-border);
+  background: color-mix(in oklab, var(--footer-bg), #fff 10%);
+  color: var(--footer-text);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  color: #fef3c7;
+  border-color: #fbbf24;
+  background: color-mix(in oklab, var(--footer-bg), #fff 18%);
+}
+
+.footer-muted {
+  color: var(--footer-muted);
+}
+
+.site-footer-bottom {
+  border-top: 1px solid var(--footer-border);
+  color: var(--footer-muted);
+}
+
+.theme-toggle {
+  background: var(--toggle-track);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.25);
+}
+
+.theme-toggle:has(:checked) {
+  background: var(--toggle-track-active);
+}
+
+.theme-toggle-thumb {
+  background: var(--toggle-thumb);
+  box-shadow:
+    inset 0 0 0 1px rgba(15, 23, 42, 0.18),
+    0 2px 6px rgba(15, 23, 42, 0.25);
+}
+
+.theme-toggle:has(:checked) .theme-toggle-thumb {
+  background: var(--toggle-thumb-active);
+  box-shadow: none;
+}
+
 .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   background-color: #ffa500;
   font-weight: bold;
   color: white;
   padding: 8px 12px;
   border-radius: 0.4rem;
+  text-decoration: none;
 }
 
 .btn:hover {
@@ -57,8 +198,42 @@ textarea {
   box-shadow: 0 10px 20px rgba(255, 165, 0, 0.24);
 }
 
-nav a:hover {
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #ffa500;
+  color: #ffa500;
+}
+
+.hero-content {
+  max-width: 38rem;
+}
+
+.hero-support {
+  color: var(--muted-text);
+  max-width: 50ch;
+  line-height: 1.65;
+}
+
+.hero-typewrite {
+  min-height: 3.2rem;
+  max-width: 58ch;
+  line-height: 1.65;
+}
+
+.site-nav-links a:hover,
+.site-nav-icon:hover {
   color: #fef3c7;
+}
+
+.site-nav-links a.is-active,
+.drawer-link.is-active {
+  color: #fbbf24;
+}
+
+.site-nav-links a.is-active {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
 }
 
 a:focus-visible,
@@ -90,6 +265,10 @@ h2 {
   padding-right: 1rem;
 }
 
+.section-block h2 {
+  margin-bottom: 1.4rem;
+}
+
 .hero-logo {
   width: min(260px, 65vw);
   height: auto;
@@ -103,10 +282,13 @@ h2 {
 input[type="text"],
 input[type="email"],
 textarea {
-  border: 1px solid gray;
+  border: 1px solid var(--input-border);
   width: 100%;
   padding: 0.5rem;
   border-radius: 0.4rem;
+  background: var(--input-bg);
+  color: var(--text);
+  cursor: text;
 }
 
 input[type="text"]:focus,
@@ -120,14 +302,108 @@ textarea:focus {
 label {
   opacity: 0.6;
   font-weight: 600;
+  color: var(--muted-text);
 }
 
 .drawer-link {
-  color: #1f2937;
+  color: var(--text);
   font-weight: 700;
 }
 
+.site-drawer {
+  background: var(--drawer-bg);
+  color: var(--text);
+  border-right: 1px solid var(--drawer-border);
+}
+
+.section-panel {
+  background: var(--surface-soft);
+  border: 1px solid color-mix(in oklab, var(--surface-soft), #000 10%);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+.contact-wrap {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-result {
+  min-height: 1.5rem;
+}
+
+.form-result-message {
+  display: inline-block;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.form-result-message i {
+  margin-right: 0.45rem;
+}
+
+.form-result-message.error {
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+.form-result-message.success {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.contact-submit-btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 12px 22px rgba(245, 158, 11, 0.24);
+}
+
+.contact-info-panel {
+  height: 100%;
+}
+
+.contact-info-text {
+  color: var(--muted-text);
+  line-height: 1.7;
+}
+
+.contact-cta {
+  justify-content: center;
+}
+
+.contact-meta p,
+.contact-points p {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.contact-meta i {
+  color: #f59e0b;
+}
+
+.contact-points i {
+  color: #22c55e;
+}
+
+@media (min-width: 1024px) {
+  .contact-wrap {
+    max-width: 44rem;
+  }
+}
+
 #services-list > .service-card {
+  background: var(--surface);
+  color: var(--text);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;

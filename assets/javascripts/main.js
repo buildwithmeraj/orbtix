@@ -118,21 +118,24 @@ document.getElementById("submit_btn").addEventListener("click", function () {
   const email = document.getElementById("email");
   const message = document.getElementById("message");
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const showResult = (text, type) => {
+    const icon =
+      type === "success"
+        ? "fa-circle-check"
+        : "fa-circle-exclamation";
+    result.innerHTML = `<span class="form-result-message ${type}"><i class="fa-solid ${icon}"></i>${text}</span>`;
+  };
 
   // validate input data and send the result
   if (name.value.length < 3 || name.value.length > 15) {
-    result.innerHTML =
-      '<span class="text-red-500 font-semibold">Invalid name</span>';
+    showResult("Invalid name", "error");
   } else if (emailRegex.test(email.value) === false) {
-    result.innerHTML =
-      '<span class="text-red-500 font-semibold">Invalid email</span>';
+    showResult("Invalid email", "error");
   } else if (message.value.length < 20 || message.value.length > 1000) {
-    result.innerHTML =
-      '<span class="text-red-500 font-semibold">Invalid message length</span>';
+    showResult("Invalid message length", "error");
   } else {
     // if no error, then show the success message
-    result.innerHTML =
-      '<span class="text-green-500 font-semibold">Message sent successfuly</span>';
+    showResult("Message sent successfully", "success");
   }
 });
 
@@ -154,4 +157,84 @@ if (drawerCloseElements.length > 0) {
       drawer.classList.add("-translate-x-full");
     });
   });
+}
+
+// highlight active section links while scrolling
+const sectionIds = ["home", "services", "about", "contact"];
+const sectionElements = sectionIds
+  .map((id) => document.getElementById(id))
+  .filter(Boolean);
+const navLinks = Array.from(
+  document.querySelectorAll('.site-nav-links a[href^="#"], .drawer-link[href^="#"]'),
+);
+
+const setActiveNavLink = () => {
+  const scrollY = window.scrollY + window.innerHeight * 0.28;
+  let activeId = sectionIds[0];
+
+  sectionElements.forEach((section) => {
+    if (section.offsetTop <= scrollY) {
+      activeId = section.id;
+    }
+  });
+
+  navLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${activeId}`;
+    link.classList.toggle("is-active", isActive);
+  });
+};
+
+window.addEventListener("scroll", setActiveNavLink, { passive: true });
+window.addEventListener("load", setActiveNavLink);
+
+// light/dark theme toggle using html[data-theme] + localStorage
+const themeToggle = document.getElementById("AcceptConditions");
+const htmlEl = document.documentElement;
+const THEME_KEY = "theme";
+const LIGHT_THEME = "light";
+const DARK_THEME = "dark";
+
+const applyTheme = (theme) => {
+  htmlEl.setAttribute("data-theme", theme);
+  if (themeToggle) {
+    themeToggle.checked = theme === DARK_THEME;
+  }
+};
+
+const getSavedTheme = () => {
+  try {
+    return localStorage.getItem(THEME_KEY);
+  } catch (error) {
+    return null;
+  }
+};
+
+const saveTheme = (theme) => {
+  try {
+    localStorage.setItem(THEME_KEY, theme);
+  } catch (error) {
+    // ignore storage errors in restricted environments
+  }
+};
+
+const normalizeTheme = (theme) => (theme === DARK_THEME ? DARK_THEME : LIGHT_THEME);
+
+const initialTheme = normalizeTheme(
+  getSavedTheme() || htmlEl.getAttribute("data-theme") || LIGHT_THEME,
+);
+applyTheme(initialTheme);
+saveTheme(initialTheme);
+
+if (themeToggle) {
+  themeToggle.addEventListener("change", () => {
+    const nextTheme = themeToggle.checked ? DARK_THEME : LIGHT_THEME;
+    applyTheme(nextTheme);
+    saveTheme(nextTheme);
+  });
+}
+
+// keep footer year current
+const footerYear = document.getElementById("footer_year");
+if (footerYear) {
+  footerYear.textContent = String(new Date().getFullYear());
 }
