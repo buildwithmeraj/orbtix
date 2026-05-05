@@ -120,10 +120,10 @@ document.getElementById("submit_btn").addEventListener("click", function () {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const showResult = (text, type) => {
     const icon =
-      type === "success"
-        ? "fa-circle-check"
-        : "fa-circle-exclamation";
+      type === "success" ? "fa-circle-check" : "fa-circle-exclamation";
     result.innerHTML = `<span class="form-result-message ${type}"><i class="fa-solid ${icon}"></i>${text}</span>`;
+
+    document.getElementById("contact_form").reset();
   };
 
   // validate input data and send the result
@@ -165,7 +165,9 @@ const sectionElements = sectionIds
   .map((id) => document.getElementById(id))
   .filter(Boolean);
 const navLinks = Array.from(
-  document.querySelectorAll('.site-nav-links a[href^="#"], .drawer-link[href^="#"]'),
+  document.querySelectorAll(
+    '.site-nav-links a[href^="#"], .drawer-link[href^="#"]',
+  ),
 );
 
 const setActiveNavLink = () => {
@@ -217,7 +219,8 @@ const saveTheme = (theme) => {
   }
 };
 
-const normalizeTheme = (theme) => (theme === DARK_THEME ? DARK_THEME : LIGHT_THEME);
+const normalizeTheme = (theme) =>
+  theme === DARK_THEME ? DARK_THEME : LIGHT_THEME;
 
 const initialTheme = normalizeTheme(
   getSavedTheme() || htmlEl.getAttribute("data-theme") || LIGHT_THEME,
