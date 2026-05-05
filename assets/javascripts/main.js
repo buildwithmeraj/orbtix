@@ -1,3 +1,4 @@
+// initialize typewriter for hero text
 new TypeIt("#typewrite", { speed: 50, loop: true })
   .type(
     "We build fast, scalable, and beautiful digital products that help  businesses grow in the modern web.",
@@ -45,13 +46,16 @@ const revealElements = () => {
   });
 };
 
+// attach the reveal animation to the window load event listener
 window.addEventListener("load", revealElements);
 
 // fetch and render services after page has loaded
 window.addEventListener("load", async () => {
   try {
     // try to fetch services
-    const response = await fetch("data/services.json");
+    const response = await fetch(
+      "https://raw.githubusercontent.com/buildwithmeraj/orbtix/refs/heads/main/data/services.json",
+    );
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -66,7 +70,7 @@ window.addEventListener("load", async () => {
   // function for rendering services
   function showServices(services) {
     // get the div
-    const servicesDiv = document.getElementById("services");
+    const servicesDiv = document.getElementById("services-list");
 
     // first empty the div
     servicesDiv.innerHTML = "";
@@ -77,7 +81,7 @@ window.addEventListener("load", async () => {
         const card = document.createElement("div");
 
         // add classes to it
-        card.className = "rounded-lg shadow-md bg-base-100 reveal";
+        card.className = "service-card rounded-lg shadow-md bg-base-100 reveal";
 
         // add data to it
         card.innerHTML = `
@@ -108,12 +112,14 @@ window.addEventListener("load", async () => {
 });
 
 document.getElementById("submit_btn").addEventListener("click", function () {
+  // get the dom elemtents
   const result = document.getElementById("result");
   const name = document.getElementById("name");
   const email = document.getElementById("email");
   const message = document.getElementById("message");
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
+  // validate input data and send the result
   if (name.value.length < 3 || name.value.length > 15) {
     result.innerHTML =
       '<span class="text-red-500 font-semibold">Invalid name</span>';
@@ -124,16 +130,16 @@ document.getElementById("submit_btn").addEventListener("click", function () {
     result.innerHTML =
       '<span class="text-red-500 font-semibold">Invalid message length</span>';
   } else {
+    // if no error, then show the success message
     result.innerHTML =
       '<span class="text-green-500 font-semibold">Message sent successfuly</span>';
   }
-
-  //console.log("Submitted");
 });
 
 // toggle drawer on hamburger menu click
 const hamburgerBtn = document.getElementById("drawer_toggle");
 const drawer = document.getElementById("drawer");
+const drawerCloseElements = document.querySelectorAll("[data-drawer-hide]");
 
 if (hamburgerBtn) {
   hamburgerBtn.addEventListener("click", () => {
@@ -141,10 +147,11 @@ if (hamburgerBtn) {
   });
 }
 
-// close drawer when close button is clicked
-const closeBtn = document.querySelector("[data-drawer-hide]");
-if (closeBtn) {
-  closeBtn.addEventListener("click", () => {
-    drawer.classList.add("-translate-x-full");
+// close drawer when close button or link is clicked
+if (drawerCloseElements.length > 0) {
+  drawerCloseElements.forEach((element) => {
+    element.addEventListener("click", () => {
+      drawer.classList.add("-translate-x-full");
+    });
   });
 }

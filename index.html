@@ -3,6 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Orbtix builds scalable web, mobile, cloud, and cybersecurity solutions that help businesses grow with modern technology."
+    />
+    <meta
+      name="keywords"
+      content="Orbtix, web development, mobile app development, UI UX design, cloud, DevOps, cybersecurity, digital marketing"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Orbtix" />
+    <meta
+      property="og:title"
+      content="Orbtix - Orbiting the Future of Technology"
+    />
+    <meta
+      property="og:description"
+      content="Forward-thinking IT solutions in web, mobile, cloud, and cybersecurity."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/images/icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,21 +46,16 @@
       <nav
         class="bg-slate-500 h-16 flex items-center justify-between px-4 sm:px-5"
       >
-        <div class="flex items-center gap-2 text-2xl sm:text-3xl font-bold text-white">
+        <div
+          class="flex items-center gap-2 text-2xl sm:text-3xl font-bold text-white"
+        >
           <div class="text-center">
-            <button class="lg:hidden text-white" id="drawer_toggle">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="size-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+            <button
+              class="lg:hidden text-white"
+              id="drawer_toggle"
+              type="button"
+            >
+              <i class="fa-solid fa-bars"></i>
             </button>
           </div>
           <img
@@ -57,6 +72,7 @@
         </div>
         <div>
           <label
+            for="AcceptConditions"
             class="relative inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-gray-900"
           >
             <input class="peer sr-only" id="AcceptConditions" type="checkbox" />
@@ -68,21 +84,27 @@
       </nav>
     </header>
     <main class="grow space-y-10 md:space-y-14">
-      <section class="hero py-10 md:py-12 reveal">
-        <a name="home"></a>
+      <section id="home" class="hero py-10 md:py-12 reveal">
         <div
           class="content-container grid grid-cols-1 lg:grid-cols-2 items-center gap-8"
         >
           <div
             class="space-y-3 backdrop-blur-sm border-4 border-[#ffa500] rounded-tl-3xl rounded-br-3xl p-5 sm:p-6"
           >
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold">Orbtix</h1>
+            <h1
+              id="home-title"
+              class="text-4xl sm:text-5xl lg:text-6xl font-bold"
+            >
+              Orbtix
+            </h1>
             <p class="italic text-base sm:text-lg font-bold text-[#ff8000]">
               Orbiting the Future of Technology
             </p>
             <p id="typewrite" class="text-sm sm:text-base"></p>
             <div class="flex justify-start sm:justify-center">
-              <button class="btn">Let's Talk</button>
+              <button class="btn">
+                <i class="fa-solid fa-message text-sm mt-1.5"></i> Let's Talk
+              </button>
             </div>
           </div>
           <div class="place-self-center lg:place-self-end">
@@ -95,10 +117,12 @@
         </div>
       </section>
 
-      <section class="content-container reveal">
-        <a name="services"></a>
-        <h2>Our Services</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="services">
+      <section id="services" class="content-container reveal">
+        <h2 id="services-title">Our Services</h2>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          id="services-list"
+        >
           <dotlottie-wc
             src="https://lottie.host/5611ec6f-8f1c-4633-8c3d-607d1b3aae7b/0P8w4J4ymK.lottie"
             style="width: min(300px, 80vw); height: min(300px, 80vw)"
@@ -109,16 +133,15 @@
         </div>
       </section>
 
-      <section class="content-container reveal">
-        <a name="about"></a>
-        <h2>About Orbtix</h2>
+      <section id="about" class="content-container reveal">
+        <h2 id="about-section-title">About Orbtix</h2>
         <div
           class="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 bg-gray-300 p-5 sm:p-8 rounded-2xl"
         >
           <div class="flex-1">
-            <h1 class="card-title mb-3">
+            <h3 id="about-title" class="card-title mb-3">
               We Are Orbtix — A Team Passionate About Technology
-            </h1>
+            </h3>
             <p>
               Orbtix is a forward-thinking IT solutions company dedicated to
               building digital products that make a real difference. Founded on
@@ -140,11 +163,10 @@
         </div>
       </section>
 
-      <section class="content-container reveal">
-        <a name="contact"></a>
-        <h2>Contact US</h2>
+      <section id="contact" class="content-container reveal">
+        <h2 id="contact-section-title">Contact US</h2>
         <div>
-          <form id="contact_form" class="space-y-2">
+          <form id="contact_form" class="space-y-2" novalidate>
             <div id="result"></div>
             <div>
               <label for="name">Your Name</label>
@@ -152,15 +174,17 @@
                 type="text"
                 id="name"
                 placeholder="Merajul Islam"
+                autocomplete="name"
                 required
               />
             </div>
             <div>
-              <label for="name">Email</label>
+              <label for="email">Email</label>
               <input
                 type="email"
                 id="email"
                 placeholder="meraj@example.com"
+                autocomplete="email"
                 required
               />
             </div>
@@ -173,7 +197,9 @@
                 required
               ></textarea>
             </div>
-            <button class="btn" id="submit_btn" type="button">Send</button>
+            <button class="btn" id="submit_btn" type="button">
+              <i class="fa-solid fa-play"></i> Send
+            </button>
           </form>
         </div>
       </section>
@@ -188,10 +214,27 @@
       id="drawer"
       class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-60"
       tabindex="-1"
-      aria-labelledby="drawer-label"
     >
-      <div class="flex items-center">
-        <button type="button" data-drawer-hide="drawer">x</button>
+      <div class="flex items-center justify-end">
+        <button
+          type="button"
+          data-drawer-hide="drawer"
+          class="font-bold text-xl"
+        >
+          x
+        </button>
+      </div>
+      <div class="-mt-6 flex flex-col gap-3">
+        <a href="#home" class="drawer-link" data-drawer-hide="drawer">Home</a>
+        <a href="#services" class="drawer-link" data-drawer-hide="drawer"
+          >Services</a
+        >
+        <a href="#about" class="drawer-link" data-drawer-hide="drawer"
+          >About US</a
+        >
+        <a href="#contact" class="drawer-link" data-drawer-hide="drawer"
+          >Contact US</a
+        >
       </div>
     </div>
 
@@ -200,6 +243,10 @@
     <script
       src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js"
       type="module"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/6d6898b409.js"
+      crossorigin="anonymous"
     ></script>
     <script src="assets/javascripts/main.js"></script>
   </body>

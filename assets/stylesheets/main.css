@@ -28,6 +28,7 @@ textarea {
     border-color 0.25s ease,
     box-shadow 0.25s ease,
     transform 0.25s ease;
+  cursor: pointer;
 }
 
 .primary-bg {
@@ -58,6 +59,14 @@ textarea {
 
 nav a:hover {
   color: #fef3c7;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
 }
 
 h2 {
@@ -113,13 +122,18 @@ label {
   font-weight: 600;
 }
 
-#services > div {
+.drawer-link {
+  color: #1f2937;
+  font-weight: 700;
+}
+
+#services-list > .service-card {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-#services > div:hover {
+#services-list > .service-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 14px 26px rgba(15, 23, 42, 0.14);
 }
